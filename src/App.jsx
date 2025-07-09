@@ -1,9 +1,17 @@
 import './App.css'
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Auth from './pages/auth'
+import Expense from './pages/expense-tracker'
 
 function App() {
 
   return (
-    <div>Expense tracker</div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' exact element={<Auth />} />
+        <Route path='/expense-tracker' exact element={<Expense />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
