@@ -1,12 +1,17 @@
 import { auth, provider } from "../../config/firebase-config"
 import { signInWithPopup } from "firebase/auth"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
+
+import { useGetUserInfo } from "../../hooks/useGetUserInfo"
+
+import "./style.css"
 
 export default function Auth() {
 
     const navigate = useNavigate()
-    async function signInWithGoogle() {
+    const { isActive } = useGetUserInfo()
 
+    async function signInWithGoogle() {
         const result = await signInWithPopup(auth, provider)
         console.log(result);
         const userAuthInfo = {
@@ -18,6 +23,10 @@ export default function Auth() {
 
         localStorage.setItem("auth", JSON.stringify(userAuthInfo));
         navigate("/expense-tracker")
+    }
+
+    if (isActive) {
+        return <Navigate to="/expense-tracker" />;
     }
 
     return (

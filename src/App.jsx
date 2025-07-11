@@ -9,7 +9,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' exact element={<Auth />} />
-        <Route path='/expense-tracker' exact element={<Expense />} />
+        <Route path='/expense-tracker' element={<Expense />} />
       </Routes>
     </BrowserRouter>
   )
