@@ -7,18 +7,18 @@ export function useAddTransaction() {
   async function addTransaction({
     description,
     transactionAmount,
-    transcationType,
+    transactionType,
   }) {
     try {
       await addDoc(collection(db, "transactions"), {
         userId: id,
         description,
         transactionAmount,
-        transcationType,
+        transactionType,
         createdAt: serverTimestamp(),
       });
     } catch (e) {
-      console.log("Error adding Document", e);
+      console.error("Error adding Document", e);
     }
   }
 
