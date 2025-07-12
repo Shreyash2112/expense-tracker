@@ -58,7 +58,6 @@ export function useGetTrasactions() {
   useEffect(() => {
     getTransactions();
   }, []);
-  console.log(transactions);
 
   return { transactions, transactionTotal };
 }

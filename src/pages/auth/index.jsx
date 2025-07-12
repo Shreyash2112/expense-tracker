@@ -9,11 +9,11 @@ import "./style.css"
 export default function Auth() {
 
     const navigate = useNavigate()
+
     const { isActive } = useGetUserInfo()
 
     async function signInWithGoogle() {
         const result = await signInWithPopup(auth, provider)
-        console.log(result);
         const userAuthInfo = {
             id: result.user.uid,
             name: result.user.displayName,

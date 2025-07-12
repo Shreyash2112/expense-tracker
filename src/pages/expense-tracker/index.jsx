@@ -35,8 +35,8 @@ export default function Expense() {
 
     async function signUserOut() {
         signOut(auth).then(() => {
-            localStorage.removeItem("auth")
-            navigate("/")
+            localStorage.removeItem("auth");
+            navigate("/");
         }).catch((e) => {
             console.error(e);
         })
